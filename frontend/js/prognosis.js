@@ -57,7 +57,7 @@ $(function () {
             var day = data.days[i];
 
             // preprocess categories
-            options.xAxis.categories.push('<div class="day">' + day.day + "<br/>" + day.date + "<br/>" + '<img src="img/sunny.jpg" class="weather-icon" alt=""/></div>');
+            options.xAxis.categories.push('<div class="day">' + day.day + "<br/>" + day.date + "<br/>" + '<img src="img/icons/' + day.weatherIcon + '.png" class="weather-icon" alt=""/></div>');
 
             // preprocess series
             options.series[0].data.push(day.totalLoad / maxLoad * 100);
