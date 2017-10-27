@@ -1,32 +1,58 @@
 $(function () {
-    var myChart = Highcharts.chart('char-container', {
+
+    // API Url
+    var endPoint = 'http://localhost:8888/prognose-tool/frontend/mock.json';
+
+    // chart options
+    var options = {
         chart: {
-            type: 'column'
+            type: 'column',
+            renderTo: 'char-container'
         },
         title: {
             text: 'W. 44'
         },
         xAxis: {
-            categories: ['Heute, <br/>Fr, 27.10.17', 'Sa, 28.10.17', 'So, 28.10.17', 'Mo, 29.10.17', 'Di, 30.10.17', 'Mi, 31.10.17', 'Do, 01.11.17']
+            categories: []
         },
         yAxis: {
             title: {
-                text: ''
+                text: '% Auslastung'
             }
         },
         series: [
             {
                 name: 'Generelle Auslastung',
-                data: [5, 7, 3, 4, 3, 5, 7]
+                data: []
             },
             {
                 name: 'Auslastung Bergbahnen',
-                data: [2, 5, 4, 3, 1, 2, 1]
+                data: []
             },
             {
                 name: 'Auslastung Skischule',
-                data: [1, 3, 3, 2, 0, 1, 1]
+                data: []
             }
         ]
+    }
+
+    $.getJSON(endPoint, function (data) {
+        // normalize data
+        var maxLoad = data.maxLoad;
+
+        // process the days to use with the chart
+        for (var i = 0, len = data.days.length; i < len; i++) {
+            var day = data.days[i];
+
+            // preprocess categories
+            options.xAxis.categories.push(day.day + ", " + day.date + "<br/>" + "");
+
+            // preprocess series
+            options.series[0].data.push(day.totalLoad);
+            options.series[1].data.push(day.requiredLoad);
+            //options.series[2].data.push(day.requiredLoad);
+        }
+
+        var chart = new Highcharts.Chart(options);
     });
 });
