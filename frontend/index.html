@@ -19,12 +19,25 @@
         </header>
         <main role="main" class="content">
             <div class="row row-offcanvas row-offcanvas-right">
-                <div class="col-12 col-md-9">
+                <div class="col-12 col-md-9 topBar" id="topBar">
+                    <div class="category">
+                        <h6>Kategorie</h6>
+                        <button type="button" class="btn btn-default btn-circle active">Bergbahn</button>
+                        <button type="button" class="btn btn-default btn-circle">Skischule</button>
+                        <button type="button" class="btn btn-default btn-circle">Schwimmbad</button>
+                    </div>
+                    <div class="period">
+                        <h6>Zeitraum</h6>
+                        <button type="button" class="btn btn-default btn-circle active">1 W.</button>
+                        <button type="button" class="btn btn-default btn-circle">3 W.</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9 charts">
                     <div class="jumbotron">
                         <div id="char-container"></div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+                <div class="col-6 col-md-3 sidebar-offcanvas sidebar" id="sidebar">
                     <div class="category">
                         <h6>Kategorie</h6>
                         <ul class="list-group">

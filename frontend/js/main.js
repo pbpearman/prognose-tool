@@ -8,4 +8,4 @@ function setActiveClass($selector) {
 }
 
 setActiveClass('.category .list-group-item');
-setActiveClass('.period .btn');
+setActiveClass('.btn-circle');
