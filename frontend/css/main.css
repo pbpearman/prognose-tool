@@ -19,6 +19,11 @@
 .category {
     margin-bottom: 2rem;
 }
+
+.period {
+    margin-left: 5px;
+}
+
 .list-group .list-group-item {
     cursor:pointer;
 }
@@ -73,5 +78,21 @@ button.active, button.active:focus{
 
     .sidebar {
         display: none;
+    }
+}
+
+@media (max-width: 541px) {
+    .topBar {
+        padding-bottom: 1.5rem;
+    }
+
+    .topBar .category {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 419px) {
+    .topBar .btn {
+        margin-bottom: 1rem;
     }
 }
