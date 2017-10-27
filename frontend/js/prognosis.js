@@ -1,22 +1,28 @@
+var breakPoint = 769,
+    smallChart = 'bar',
+    bigChart = 'column',
+    container = 'chart-container',
+    endPoint = 'http://localhost:8888/prognose-tool/frontend/mock.json'
+;
+
+
 // high charts
 $(function () {
 
     var theWindowSize = $(this).width();
-    var chartType = 'column';
+    var chartType = bigChart;
 
-    if (theWindowSize <= 536) {
-        chartType = 'bar';
+    if (theWindowSize <= breakPoint) {
+        chartType = smallChart;
     }
 
     var chart = null;
-    // API Url
-    var endPoint = 'http://localhost:8888/prognose-tool/frontend/mock.json';
 
     // chart options
     var options = {
         chart: {
             type: chartType,
-            renderTo: 'chart-container'
+            renderTo: container
         },
         title: {
             text: 'W. 44'
@@ -75,16 +81,14 @@ $(function () {
 
     $(window).on('resize', (function () {
         var theWindowSize = $(this).width();
-        var chartType = 'column';
+        var chartType = bigChart;
 
-        console.log('resize ' + theWindowSize);
-
-        if (theWindowSize <= 536) {
-            chartType = 'bar';
+        if (theWindowSize <= breakPoint) {
+            chartType = smallChart;
         }
 
         var chart = $('#chart-container').highcharts();
-        console.log(chart);
+
         if(chartType != chart.options.chart.type) {
             var options = chart.options;
             options.chart.type = chartType  ;

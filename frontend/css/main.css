@@ -49,7 +49,7 @@ button.active, button.active:focus{
     box-shadow: 0 0 0 0.1rem #157FFC;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
     .topBar {
         display: block;
         margin-top: 4.4rem;

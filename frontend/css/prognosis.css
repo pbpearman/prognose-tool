@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-@media (max-width: 541px) {
+@media (max-width: 769px) {
     .weather-icon img {
         width: 25px;
         height: 25px;
