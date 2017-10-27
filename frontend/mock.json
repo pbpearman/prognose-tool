@@ -1,0 +1,47 @@
+{
+  "12307":[
+    {
+      "date": "2017-10-27",
+      "day": "FR",
+      "total-load": "12307",
+      "required-load": "5703"
+    },
+    {
+      "date": "2017-10-28",
+      "day": "SA",
+      "total-load": "12507",
+      "required-load": "5803"
+    },
+    {
+      "date": "2017-10-29",
+      "day": "SO",
+      "total-load": "12107",
+      "required-load": "3703"
+    },
+    {
+      "date": "2017-10-30",
+      "day": "MO",
+      "total-load": "12807",
+      "required-load": "5003"
+    },
+    {
+      "date": "2017-10-31",
+      "day": "DI",
+      "total-load": "12907",
+      "required-load": "1703"
+    },
+    {
+      "date": "2017-11-01",
+      "day": "MI",
+      "total-load": "12007",
+      "required-load": "5755"
+    },
+    {
+      "date": "2017-11-02",
+      "day": "DO",
+      "total-load": "12447",
+      "required-load": "5123"
+    }
+
+  ]
+}
