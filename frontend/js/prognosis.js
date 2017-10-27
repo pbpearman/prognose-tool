@@ -1,5 +1,5 @@
 $(function () {
-    var myChart = Highcharts.chart('container', {
+    var myChart = Highcharts.chart('char-container', {
         chart: {
             type: 'column'
         },
@@ -28,19 +28,5 @@ $(function () {
                 data: [1, 3, 3, 2, 0, 1, 1]
             }
         ]
-    });
-});
-
-
-var chart1; // globally available
-$(function() {
-    chart1 = Highcharts.stockChart('container', {
-        rangeSelector: {
-            selected: 1
-        },
-        series: [{
-            name: 'USD to EUR',
-            data: usdtoeur // predefined JavaScript array
-        }]
     });
 });
