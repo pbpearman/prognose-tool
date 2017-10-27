@@ -1,26 +1,15 @@
 // high charts
 $(function () {
 
-    // update char type
-    function updateChartType() {
-        var chartType = 'column';
-        var $theWindowSize = $(this).width();
-
-        if ($theWindowSize <= 699) {
-            chartType = 'bar';
-        }
-        return chartType;
-    }
-
-
+    var chart = null;
     // API Url
     var endPoint = 'http://localhost:8888/prognose-tool/frontend/mock.json';
 
     // chart options
     var options = {
         chart: {
-            type: updateChartType(),
-            renderTo: 'char-container'
+            type: 'column',
+            renderTo: 'chart-container'
         },
         title: {
             text: 'W. 44'
@@ -69,6 +58,26 @@ $(function () {
             //options.series[2].data.push(day.requiredLoad);
         }
 
-        var chart = new Highcharts.Chart(options);
+        chart = new Highcharts.Chart(options);
     });
+
+    $(window).on('resize', (function () {
+        var theWindowSize = $(this).width();
+        var chartType = 'column';
+
+        console.log('resize ' + theWindowSize);
+
+        if (theWindowSize <= 536) {
+            chartType = 'bar';
+        }
+
+        var chart = $('#chart-container').highcharts();
+        console.log(chart);
+        if(chartType != chart.options.chart.type) {
+            var options = chart.options;
+            options.chart.type = chartType  ;
+            chart.destroy();
+            chart = new Highcharts.Chart(options);
+        }
+    }));
 });
