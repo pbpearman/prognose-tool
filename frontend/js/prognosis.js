@@ -4,7 +4,7 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'Wo 44'
+            text: 'W. 44'
         },
         xAxis: {
             categories: ['Heute, <br/>Fr, 27.10.17', 'Sa, 28.10.17', 'So, 28.10.17', 'Mo, 29.10.17', 'Di, 30.10.17', 'Mi, 31.10.17', 'Do, 01.11.17']

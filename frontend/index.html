@@ -17,16 +17,36 @@
                 <a class="navbar-brand" href="#">Prognose-Tool</a>
             </nav>
         </header>
-        <div class="container-fluid">
-            <div class="jumbotron">
-                <div id="char-container"></div>
+        <main role="main" class="container">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <div class="col-12 col-md-9">
+                    <div class="jumbotron">
+                        <div id="char-container"></div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+                    <div class="category">
+                        <h6>Kategorie</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item active">Bergbahn</li>
+                            <li class="list-group-item">Skischule</li>
+                            <li class="list-group-item">Schwimmbad</li>
+                        </ul>
+                    </div>
+                    <div class="period">
+                        <h6>Zeitraum</h6>
+                        <button type="button" class="btn btn-default btn-circle active">1 W.</button>
+                        <button type="button" class="btn btn-default btn-circle">3 W.</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </main>
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="js/vendor/jquery-3.2.1.min.js"></script>
         <script src="js/vendor/bootstrap/popper.min.js"></script>
         <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
         <script src="js/vendor/highcharts.js"></script>
+        <script src="js/main.js"></script>
         <script src="js/prognosis.js"></script>
     </body>
 </html>
