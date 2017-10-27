@@ -13,6 +13,9 @@ $(function () {
             text: 'W. 44'
         },
         xAxis: {
+            labels: {
+                useHTML: true
+            },
             categories: []
         },
         yAxis: {
@@ -45,11 +48,11 @@ $(function () {
             var day = data.days[i];
 
             // preprocess categories
-            options.xAxis.categories.push(day.day + ", " + day.date + "<br/>" + "");
+            options.xAxis.categories.push('<div class="day">' + day.day + "<br/>" + day.date + "<br/>" + '<img src="img/sunny.jpg" class="weather-icon" alt=""/></div>');
 
             // preprocess series
-            options.series[0].data.push(day.totalLoad);
-            options.series[1].data.push(day.requiredLoad);
+            options.series[0].data.push(day.totalLoad / maxLoad * 100);
+            options.series[1].data.push(day.requiredLoad / maxLoad * 100);
             //options.series[2].data.push(day.requiredLoad);
         }
 
