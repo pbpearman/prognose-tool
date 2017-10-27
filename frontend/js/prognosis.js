@@ -34,7 +34,7 @@ $(function () {
                 data: []
             }
         ]
-    }
+    };
 
     $.getJSON(endPoint, function (data) {
         // normalize data
