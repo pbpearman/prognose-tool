@@ -1,4 +1,17 @@
+// high charts
 $(function () {
+
+    // update char type
+    function updateChartType() {
+        var chartType = 'column';
+        var $theWindowSize = $(this).width();
+
+        if ($theWindowSize <= 699) {
+            chartType = 'bar';
+        }
+        return chartType;
+    }
+
 
     // API Url
     var endPoint = 'http://localhost:8888/prognose-tool/frontend/mock.json';
@@ -6,7 +19,7 @@ $(function () {
     // chart options
     var options = {
         chart: {
-            type: 'column',
+            type: updateChartType(),
             renderTo: 'char-container'
         },
         title: {
