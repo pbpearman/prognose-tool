@@ -1,0 +1,312 @@
+{
+    "maxCounts": [
+        {
+            "category": "Skischule",
+            "count": "500"
+        },
+        {
+            "category": "Bergbahnen",
+            "count": "12104"
+        },
+        {
+            "category": "GesamtRegion",
+            "count": "12104"
+        }
+    ],
+    "days": [
+        {
+            "date": "2018-02-12",
+            "dayOfWeek": "Mo",
+            "temp": "-3.2",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "344"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "12105"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "15736"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-13",
+            "dayOfWeek": "Di",
+            "temp": "-3.2",
+            "weatherIcon": "c01d",
+            "weatherCode": "801",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "320"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "12130"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "15769"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-14",
+            "dayOfWeek": "Mi",
+            "temp": "-2.5",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "286"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "12130"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "15769"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-15",
+            "dayOfWeek": "Do",
+            "temp": "-3.2",
+            "weatherIcon": "s01d",
+            "weatherCode": "801",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "300"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "10582"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "13757"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-16",
+            "dayOfWeek": "Fr",
+            "temp": "-3.2",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "304"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "11261"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "14639"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-17",
+            "dayOfWeek": "Sa",
+            "temp": "-3.2",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "315"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "16896"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "28723"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-18",
+            "dayOfWeek": "So",
+            "temp": "-3.2",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "344"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "17057"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "18763"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-19",
+            "dayOfWeek": "Mo",
+            "temp": "-3.2",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "287"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "11361"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "14769"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-20",
+            "dayOfWeek": "Di",
+            "temp": "-3.2",
+            "weatherIcon": "c01d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "285"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "11334"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "14734"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-21",
+            "dayOfWeek": "Mi",
+            "temp": "-3.2",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "265"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "16289"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "17918"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-22",
+            "dayOfWeek": "Do",
+            "temp": "-3.2",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "250"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "16337"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "17970"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-23",
+            "dayOfWeek": "Fr",
+            "temp": "-3.2",
+            "weatherIcon": "c03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "335"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "11878"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "15442"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-24",
+            "dayOfWeek": "Sa",
+            "temp": "-3.2",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "344"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "16391"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "27865"
+                }
+            ]
+        },
+        {
+            "date": "2018-02-25",
+            "dayOfWeek": "So",
+            "temp": "-3.2",
+            "weatherIcon": "s03d",
+            "weatherCode": "803",
+            "categories": [
+                {
+                    "category": "Skischule",
+                    "count": "344"
+                },
+                {
+                    "category": "Bergbahnen",
+                    "count": "12105"
+                },
+                {
+                    "category": "GesamtRegion",
+                    "count": "15736"
+                }
+            ]
+        }
+    ]     
+}

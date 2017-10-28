@@ -2,7 +2,8 @@ var breakPoint = 769,
     smallChart = 'bar',
     bigChart = 'column',
     container = 'chart-container',
-    endPoint = 'http://prognose-tool.waleed.ch/mockv2.json'
+    endPoint = 'http://prognose-tool.waleed.ch/mockedData.json'
+    //endPoint = 'http://localhost:8888/prognose-tool/frontend/mockedData.json'
 ;
 
 
@@ -42,7 +43,7 @@ $(function () {
         },
         series: [
             {
-                name: 'Auslastung Destination',
+                name: 'Auslastung Skischule',
                 data: []
             },
             {
@@ -50,7 +51,7 @@ $(function () {
                 data: []
             },
             {
-                name: 'Auslastung Skischule',
+                name: 'Auslastung Destination',
                 data: []
             }
         ]
@@ -63,9 +64,9 @@ $(function () {
         for (var g = 0; g < 3; g++){
             options.series[g].data = [];
         }
+        options.xAxis.categories = [];
 
         $.getJSON(requestUrl, function (data) {
-            console.log(data);
             // normalize data
             var max = [];
             for (var h = 0; h < 3; h++) {
@@ -73,7 +74,8 @@ $(function () {
             }
 
             // process the days to use with the chart
-            for (var i = 0, len = data.days.length; i < len && i < days; i++) {
+            for (var i = 0, len = data.days.length; i < days; i++) {
+
                 var day = data.days[i];
 
                 // preprocess categories
