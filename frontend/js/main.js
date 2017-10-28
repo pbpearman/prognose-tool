@@ -17,10 +17,12 @@ app.controller("prognoseController", function($scope) {
         },
         periods: {
             oneWeek: {
-                name: '1 W.'
+                name: '1 W.',
+                value: 1
             },
             towWeeks: {
-                name: '2 W.'
+                name: '2 W.',
+                value: 2
             }
         }
     }

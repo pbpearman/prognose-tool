@@ -9,7 +9,7 @@
       "requiredLoad": 5703,
       "weatherIcon": "s01d",
       "weatherCode": "803",
-      "temp": "5"
+      "temp": 5.0
     },
     {
       "date": "2017-10-28",
@@ -18,7 +18,7 @@
       "requiredLoad": 5803,
       "weatherIcon": "s03d",
       "weatherCode": "803",
-      "temp": "2"
+      "temp": 2.0
     },
     {
       "date": "2017-10-29",
@@ -27,7 +27,7 @@
       "requiredLoad": 3703,
       "weatherIcon": "c01d",
       "weatherCode": "803",
-      "temp": "-1"
+      "temp": -1.5
     },
     {
       "date": "2017-10-30",
@@ -36,7 +36,7 @@
       "requiredLoad": 5003,
       "weatherIcon": "c01d",
       "weatherCode": "803",
-      "temp": "4"
+      "temp": 4.0
     },
     {
       "date": "2017-10-31",
@@ -45,7 +45,7 @@
       "requiredLoad": 1703,
       "weatherIcon": "r05d",
       "weatherCode": "803",
-      "temp": "3"
+      "temp": 3.5
     },
     {
       "date": "2017-11-01",
@@ -54,7 +54,7 @@
       "requiredLoad": 5755,
       "weatherIcon": "s01d",
       "weatherCode": "803",
-      "temp": "6"
+      "temp": 6.0
     },
     {
       "date": "2017-11-02",
@@ -63,7 +63,70 @@
       "requiredLoad": 5123,
       "weatherIcon": "t02d",
       "weatherCode": "803",
-      "temp": "5"
+      "temp": 5
+    },
+    {
+      "date": "2017-11-03",
+      "day": "Fr",
+      "totalLoad": 12307,
+      "requiredLoad": 5703,
+      "weatherIcon": "s01d",
+      "weatherCode": "803",
+      "temp": 5.0
+    },
+    {
+      "date": "2017-11-04",
+      "day": "Sa",
+      "totalLoad": 10507,
+      "requiredLoad": 5803,
+      "weatherIcon": "s03d",
+      "weatherCode": "803",
+      "temp": 2.0
+    },
+    {
+      "date": "2017-11-05",
+      "day": "So",
+      "totalLoad": 15107,
+      "requiredLoad": 3703,
+      "weatherIcon": "c01d",
+      "weatherCode": "803",
+      "temp": -1.5
+    },
+    {
+      "date": "2017-11-06",
+      "day": "Mo",
+      "totalLoad": 3807,
+      "requiredLoad": 5003,
+      "weatherIcon": "c01d",
+      "weatherCode": "803",
+      "temp": 4.0
+    },
+    {
+      "date": "2017-11-07",
+      "day": "Di",
+      "totalLoad": 4907,
+      "requiredLoad": 1703,
+      "weatherIcon": "r05d",
+      "weatherCode": "803",
+      "temp": 3.5
+    },
+    {
+      "date": "2017-11-08",
+      "day": "Mi",
+      "totalLoad": 10007,
+      "requiredLoad": 5755,
+      "weatherIcon": "s01d",
+      "weatherCode": "803",
+      "temp": 6.0
+    },
+    {
+      "date": "2017-11-09",
+      "day": "Do",
+      "totalLoad": 13447,
+      "requiredLoad": 5123,
+      "weatherIcon": "t02d",
+      "weatherCode": "803",
+      "temp": 5
     }
   ]
 }
