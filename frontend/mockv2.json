@@ -1,0 +1,39 @@
+{
+  "maxCounts": [
+    {
+      "category": "Skischule",
+      "count": "12104"
+    },
+    {
+      "category": "Bergbahnen",
+      "count": "12104"
+    },
+    {
+      "category": "GesamtRegion",
+      "count": "12104"
+    }
+  ],
+  "days": [
+    {
+      "date": "2018-02-12",
+      "dayOfWeek": "Mo",
+      "temp": "-3.2",
+      "weatherIcon": "s03d",
+      "weatherCode": "803",
+      "categories": [
+        {
+          "category": "Skischule",
+          "count": "344"
+        },
+        {
+          "category": "Bergbahnen",
+          "count": "123"
+        },
+        {
+          "category": "GesamtRegion",
+          "count": "123"
+        }
+      ]
+    }
+  ]
+}

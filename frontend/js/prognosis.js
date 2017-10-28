@@ -2,7 +2,7 @@ var breakPoint = 769,
     smallChart = 'bar',
     bigChart = 'column',
     container = 'chart-container',
-    endPoint = 'http://prognose-tool.waleed.ch/mock.json'
+    endPoint = 'http://prognose-tool.waleed.ch/mockv2.json'
 ;
 
 
@@ -42,7 +42,7 @@ $(function () {
         },
         series: [
             {
-                name: 'Generelle Auslastung',
+                name: 'Auslastung Destination',
                 data: []
             },
             {
@@ -60,12 +60,17 @@ $(function () {
         var days = 7 * period;
         var requestUrl = endPoint + '?days=' + days;
 
-        options.series[0].data = [];
-        options.series[1].data = [];
+        for (var g = 0; g < 3; g++){
+            options.series[g].data = [];
+        }
 
         $.getJSON(requestUrl, function (data) {
+            console.log(data);
             // normalize data
-            var maxLoad = data.maxLoad;
+            var max = [];
+            for (var h = 0; h < 3; h++) {
+                max.push(data.maxCounts[h].count);
+            }
 
             // process the days to use with the chart
             for (var i = 0, len = data.days.length; i < len && i < days; i++) {
@@ -73,16 +78,16 @@ $(function () {
 
                 // preprocess categories
                 options.xAxis.categories.push(
-                    '<div class="series-legend"><div class="day">' + day.day + '</div>'
+                    '<div class="series-legend"><div class="day">' + day.dayOfWeek + '</div>'
                     + '<div class="date">' + day.date + '</div>'
                     + '<div class="weather-icon">' + '<img src="img/icons/' + day.weatherIcon + '.png" ' +
                     ' alt=""/></div></div>'
                 );
 
                 // preprocess series
-                options.series[0].data.push(Math.round(day.totalLoad / maxLoad * 100));
-                options.series[1].data.push(Math.round(day.requiredLoad / maxLoad * 100));
-                //options.series[2].data.push(day.requiredLoad);
+                for (var j = 0; j < 3; j++){
+                    options.series[j].data.push(Math.round(day.categories[j].count / max[j] * 100));
+                }
             }
 
             drawChart();
