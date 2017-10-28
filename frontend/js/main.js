@@ -37,5 +37,5 @@ function setActiveClass($selector) {
     });
 }
 
-setActiveClass('.category .list-group-item');
+setActiveClass('.list-group-item');
 setActiveClass('.btn-circle');
