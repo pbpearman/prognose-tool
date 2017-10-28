@@ -11,26 +11,25 @@
         <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <link href="css/prognosis.css" rel="stylesheet">
+        <!-- angular js -->
+        <script src="js/vendor/angular.js"></script>
     </head>
-    <body>
+    <body ng-app="prognose-tool" ng-controller="prognoseController">
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="#">Prognose-Tool</a>
+                <a class="navbar-brand" href="#">{{prognoseToll.PageTitle}}</a>
             </nav>
         </header>
         <main role="main" class="content">
             <div class="row row-offcanvas row-offcanvas-right">
                 <div class="col-12 col-md-9 topBar" id="topBar">
                     <div class="category">
-                        <h6>Kategorie</h6>
-                        <button type="button" class="btn btn-default btn-circle active">Bergbahn</button>
-                        <button type="button" class="btn btn-default btn-circle">Skischule</button>
-                        <button type="button" class="btn btn-default btn-circle">Schwimmbad</button>
+                        <h6>{{prognoseToll.categoryTitle}}</h6>
+                        <button type="button" class="btn btn-default btn-circle" ng-repeat="category in prognoseToll.categories">{{category.name}}</button>
                     </div>
                     <div class="period">
-                        <h6>Zeitraum</h6>
-                        <button type="button" class="btn btn-default btn-circle active">1 W.</button>
-                        <button type="button" class="btn btn-default btn-circle">2 W.</button>
+                        <h6>{{prognoseToll.periodTitle}}</h6>
+                        <button type="button" class="btn btn-default btn-circle" ng-repeat="period in prognoseToll.periods">{{period.name}}</button>
                     </div>
                 </div>
                 <div class="col-12 col-md-9 charts">
@@ -40,17 +39,14 @@
                 </div>
                 <div class="col-6 col-md-3 sidebar-offcanvas sidebar" id="sidebar">
                     <div class="category">
-                        <h6>Kategorie</h6>
+                        <h6>{{prognoseToll.categoryTitle}}</h6>
                         <ul class="list-group">
-                            <li class="list-group-item active">Bergbahn</li>
-                            <li class="list-group-item">Skischule</li>
-                            <li class="list-group-item">Schwimmbad</li>
+                            <li class="list-group-item" ng-repeat="category in prognoseToll.categories">{{category.name}}</li>
                         </ul>
                     </div>
                     <div class="period">
-                        <h6>Zeitraum</h6>
-                        <button type="button" class="btn btn-default btn-circle active">1 W.</button>
-                        <button type="button" class="btn btn-default btn-circle">2 W.</button>
+                        <h6>{{prognoseToll.periodTitle}}</h6>
+                        <button type="button" class="btn btn-default btn-circle" ng-repeat="period in prognoseToll.periods">{{period.name}}</button>
                     </div>
                 </div>
             </div>
