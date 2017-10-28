@@ -1,7 +1,7 @@
 var app = angular.module("prognose-tool", []);
 app.controller("prognoseController", function($scope) {
     $scope.prognoseToll = {
-        PageTitle: 'Prognose-Tool',
+        PageTitle: 'Destination Forecast Dashboard',
         categoryTitle: 'Kategorie',
         periodTitle: 'Zeitraum',
         categories: {
