@@ -25,11 +25,11 @@
                 <div class="col-12 col-md-9 topBar" id="topBar">
                     <div class="category">
                         <h6>{{prognoseToll.categoryTitle}}</h6>
-                        <button type="button" class="btn btn-default btn-circle" ng-repeat="category in prognoseToll.categories">{{category.name}}</button>
+                        <button type="button" class="btn btn-default btn-circle" ng-class="{'active': $first}" ng-repeat="category in prognoseToll.categories">{{category.name}}</button>
                     </div>
                     <div class="period">
                         <h6>{{prognoseToll.periodTitle}}</h6>
-                        <button type="button" class="btn btn-default btn-circle" ng-repeat="period in prognoseToll.periods">{{period.name}}</button>
+                        <button type="button" class="btn btn-default btn-circle" ng-class="{'active': $first}" ng-repeat="period in prognoseToll.periods">{{period.name}}</button>
                     </div>
                 </div>
                 <div class="col-12 col-md-9 charts">
@@ -41,12 +41,12 @@
                     <div class="category">
                         <h6>{{prognoseToll.categoryTitle}}</h6>
                         <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="category in prognoseToll.categories">{{category.name}}</li>
+                            <li class="list-group-item" ng-class="{'active': $first}" ng-repeat="category in prognoseToll.categories">{{category.name}}</li>
                         </ul>
                     </div>
                     <div class="period">
                         <h6>{{prognoseToll.periodTitle}}</h6>
-                        <button type="button" class="btn btn-default btn-circle" ng-repeat="period in prognoseToll.periods">{{period.name}}</button>
+                        <button type="button" class="btn btn-default btn-circle" ng-class="{'active': $first}" ng-repeat="period in prognoseToll.periods">{{period.name}}</button>
                     </div>
                 </div>
             </div>
