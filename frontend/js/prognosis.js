@@ -9,20 +9,12 @@ var breakPoint = 769,
 
 // high charts
 $(function () {
-
-    var theWindowSize = $(this).width();
-    var chartType = bigChart;
-
-    if (theWindowSize <= breakPoint) {
-        chartType = smallChart;
-    }
-
     var chart = null;
 
     // chart options
     var options = {
         chart: {
-            type: chartType,
+            type: bigChart,
             renderTo: container
         },
         title: {
@@ -65,6 +57,13 @@ $(function () {
             options.series[g].data = [];
         }
         options.xAxis.categories = [];
+
+        var theWindowSize = $(this).width();
+        var chartType = bigChart;
+        if (theWindowSize <= breakPoint) {
+            chartType = smallChart;
+        }
+        options.chart.type = chartType;
 
         $.getJSON(requestUrl, function (data) {
             // normalize data
