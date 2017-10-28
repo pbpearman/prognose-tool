@@ -80,8 +80,8 @@ $(function () {
                 );
 
                 // preprocess series
-                options.series[0].data.push(day.totalLoad / maxLoad * 100);
-                options.series[1].data.push(day.requiredLoad / maxLoad * 100);
+                options.series[0].data.push(Math.round(day.totalLoad / maxLoad * 100));
+                options.series[1].data.push(Math.round(day.requiredLoad / maxLoad * 100));
                 //options.series[2].data.push(day.requiredLoad);
             }
 
