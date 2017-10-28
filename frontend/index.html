@@ -3,104 +3,60 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="Prognose-Tool Prototype">
+        <meta name="author" content="Waleed El Sayed (4eyes GmbH)">
         <link rel="icon" href="favicon.ico">
-
-        <title>Dashboard Template for Bootstrap</title>
-
+        <title>Prognose-Tool</title>
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Custom styles for this template -->
-        <link href="css/dashboard.css" rel="stylesheet">
-
+        <link href="css/main.css" rel="stylesheet">
+        <link href="css/prognosis.css" rel="stylesheet">
+        <!-- angular js -->
+        <script src="js/vendor/angular.js"></script>
+    </head>
+    <body ng-app="prognose-tool" ng-controller="prognoseController">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="#">{{prognoseToll.PageTitle}}</a>
+            </nav>
+        </header>
+        <main role="main" class="content">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <div class="col-12 col-md-9 topBar" id="topBar">
+                    <div class="category">
+                        <h6>{{prognoseToll.categoryTitle}}</h6>
+                        <button type="button" class="btn btn-default btn-circle" ng-class="{'active': $first}" ng-repeat="category in prognoseToll.categories">{{category.name}}</button>
+                    </div>
+                    <div class="period">
+                        <h6>{{prognoseToll.periodTitle}}</h6>
+                        <button type="button" class="btn btn-default btn-circle" ng-class="{'active': $first}" ng-repeat="period in prognoseToll.periods">{{period.name}}</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9 charts">
+                    <div class="jumbotron">
+                        <div id="chart-container"></div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 sidebar-offcanvas sidebar" id="sidebar">
+                    <div class="category">
+                        <h6>{{prognoseToll.categoryTitle}}</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-class="{'active': $first}" ng-repeat="category in prognoseToll.categories">{{category.name}}</li>
+                        </ul>
+                    </div>
+                    <div class="period">
+                        <h6>{{prognoseToll.periodTitle}}</h6>
+                        <button type="button" class="btn btn-default btn-circle" ng-class="{'active': $first}" ng-repeat="period in prognoseToll.periods">{{period.name}}</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Placed at the end of the document so the pages load faster -->
         <script src="js/vendor/jquery-3.2.1.min.js"></script>
         <script src="js/vendor/bootstrap/popper.min.js"></script>
         <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
         <script src="js/vendor/highcharts.js"></script>
-    </head>
-
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="#">Dashboard</a>
-                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
-                        data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Help</a>
-                        </li>
-                    </ul>
-                    <form class="form-inline mt-2 mt-md-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
-        </header>
-
-        <script>
-            $(function () {
-                var myChart = Highcharts.chart('container', {
-                    chart: {
-                        type: 'bar'
-                    },
-                    title: {
-                        text: 'Fruit Consumption'
-                    },
-                    xAxis: {
-                        categories: ['Apples', 'Bananas', 'Oranges']
-                    },
-                    yAxis: {
-                        title: {
-                            text: 'Fruit eaten'
-                        }
-                    },
-                    series: [{
-                        name: 'Jane',
-                        data: [1, 0, 4]
-                    }, {
-                        name: 'John',
-                        data: [5, 7, 3]
-                    }]
-                });
-            });
-
-
-            var chart1; // globally available
-            $(function() {
-                chart1 = Highcharts.stockChart('container', {
-                    rangeSelector: {
-                        selected: 1
-                    },
-                    series: [{
-                        name: 'USD to EUR',
-                        data: usdtoeur // predefined JavaScript array
-                    }]
-                });
-            });
-        </script>
-
-        <div id="container" style="width:100%; height:400px;"></div>
-
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-
+        <script src="js/main.js"></script>
+        <script src="js/prognosis.js"></script>
     </body>
 </html>
