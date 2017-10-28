@@ -25,7 +25,9 @@ $(function () {
             renderTo: container
         },
         title: {
-            text: 'W. 44'
+            text: 'Prognose',
+            useHtml: true
+
         },
         xAxis: {
             labels: {
@@ -54,30 +56,53 @@ $(function () {
         ]
     };
 
-    $.getJSON(endPoint, function (data) {
-        // normalize data
-        var maxLoad = data.maxLoad;
+    var getJson = function (period) {
+        var days = 7 * period;
+        var requestUrl = endPoint + '?days=' + days;
 
-        // process the days to use with the chart
-        for (var i = 0, len = data.days.length; i < len; i++) {
-            var day = data.days[i];
+        options.series[0].data = [];
+        options.series[1].data = [];
 
-            // preprocess categories
-            options.xAxis.categories.push(
-                '<div class="series-legend"><div class="day">' + day.day + '</div>'
-                + '<div class="date">' + day.date + '</div>'
-                + '<div class="weather-icon">' + '<img src="img/icons/' + day.weatherIcon + '.png" ' +
-                ' alt=""/></div></div>'
-            );
+        $.getJSON(requestUrl, function (data) {
+            // normalize data
+            var maxLoad = data.maxLoad;
 
-            // preprocess series
-            options.series[0].data.push(day.totalLoad / maxLoad * 100);
-            options.series[1].data.push(day.requiredLoad / maxLoad * 100);
-            //options.series[2].data.push(day.requiredLoad);
+            // process the days to use with the chart
+            for (var i = 0, len = data.days.length; i < len && i < days; i++) {
+                var day = data.days[i];
+
+                // preprocess categories
+                options.xAxis.categories.push(
+                    '<div class="series-legend"><div class="day">' + day.day + '</div>'
+                    + '<div class="date">' + day.date + '</div>'
+                    + '<div class="weather-icon">' + '<img src="img/icons/' + day.weatherIcon + '.png" ' +
+                    ' alt=""/></div></div>'
+                );
+
+                // preprocess series
+                options.series[0].data.push(day.totalLoad / maxLoad * 100);
+                options.series[1].data.push(day.requiredLoad / maxLoad * 100);
+                //options.series[2].data.push(day.requiredLoad);
+            }
+
+            drawChart();
+        });
+    }
+
+    var getChart = function () {
+        var chart = $('#chart-container').highcharts();
+        return chart;
+    }
+
+    var drawChart = function () {
+        var chart = getChart();
+        if(chart){
+            chart.destroy();
         }
-
         chart = new Highcharts.Chart(options);
-    });
+    }
+
+    getJson(1);
 
     $(window).on('resize', (function () {
         var theWindowSize = $(this).width();
@@ -87,7 +112,7 @@ $(function () {
             chartType = smallChart;
         }
 
-        var chart = $('#chart-container').highcharts();
+        var chart = getChart();
 
         if(chartType != chart.options.chart.type) {
             var options = chart.options;
@@ -96,4 +121,10 @@ $(function () {
             chart = new Highcharts.Chart(options);
         }
     }));
+
+    $('.period button').on('click', function () {
+        var period = $(this).attr('data-value');
+
+        getJson(period);
+    });
 });
