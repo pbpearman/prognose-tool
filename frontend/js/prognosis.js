@@ -2,7 +2,7 @@ var breakPoint = 769,
     smallChart = 'bar',
     bigChart = 'column',
     container = 'chart-container',
-    endPoint = 'http://prognose-tool.waleed.ch/mockedData.json'
+    endPoint = 'https://prognose-tool.4eyes.ch/mockedData.json'
     //endPoint = 'http://localhost:8888/prognose-tool/frontend/mockedData.json'
 ;
 
