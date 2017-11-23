@@ -1,0 +1,120 @@
+---
+title: 'Voraussage Modelen von Lift Gebrauch '
+output:
+  pdf_document
+---
+
+## Preliminaries
+You need to have installed the following packages, so that they can be loaded in the following chunk.
+```{r libs, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(randomForest)
+library(missForest)
+
+```
+Set your working directory to the directory where this .Rmd file resides along with the relevant .csv file, 'eintritt2.csv'.  This file has the data for the exercise and was created in a previous wrangling script.
+
+```{r}
+setwd("/Users/bgppermp/docs/school_of_data/hackathons/tourism_hackadays/Arosa_Lenzerheide/Daten_Arosa/prognose-tool/rdata")
+```
+
+
+
+## Cross-validation of a Random Forest model
+
+Read in the input dataset that was previously assembled.
+```{r message=FALSE, warning=FALSE}
+set.seed(12345)
+data3 <- read_csv("./eintritt2.csv")
+data3 <- as.data.frame(unclass(data3))
+
+data3 <- data3 %>%
+  select(., Wetter, auslastung, Arosa, Lenzerheide, anzahlschuler, wochenend, monat, wochedesjahres, dayofseason, schneefall, schulferienindex, percentss, tag2schnee)
+```
+### Impute missing values
+
+The data set has `r sum(is.na(data3))` missing values distributed throughout the matrix.  Let's use a Random Forest to impute those values, so that we don't end up throwing out valuable rows of data.
+
+```{r}
+data3 <- missForest(data3)$ximp
+n <- floor(0.8*dim(data3)[1])
+```
+Now the number of missing values is `r sum(is.na(data3))`, so all the missing values were successfully imputed.
+
+Now we can do a 10-fold cross-validation of the predictive performance of a random forest model.
+
+```{r}
+form <- formula(auslastung ~ Wetter + wochenend + wochedesjahres + dayofseason
+                + schneefall + schulferienindex + percentss +tag2schnee)
+cross.val.rf <- function(data,form,ntrees=1000) {
+  best <- NA
+  Rsq <- numeric()  # a vector to store Rsq values 
+  
+  #create a vector to specify fold membership of observations in dataset
+  folds <- rep_len(1:10,dim(data3)[1])  
+  folds <- base::sample(folds,length(folds),replace=FALSE) #randomize the order of 
+                                                           #the folds vector
+  for (i in 1:10){
+    test <- data[which(folds==i),] #pull out the test data for the fold
+    train <- data[which(folds!=i),]  # pull out the training data (i.e. not test)
+    mod <- randomForest(form,data=train,ntree=ntrees)
+    preds <- predict(mod,newdata = test)
+    lmod <- lm(test$auslastung ~ preds)
+    Rsq <- c(summary(lmod)$r.squared,Rsq)
+  }
+  return(mean(Rsq))  
+}
+
+# fit a model using all the data. This should be the best model
+best.rf <- function(inputdata,form){
+  mod <- randomForest(form,data=inputdata,ntree=1000)
+}
+
+# determine the R-square via 10-fold cross-validation
+cross.val.Rsq <- cross.val.rf(data = data3,form = form)
+```
+
+The 10-fold cross-validation $R^2$ of Random Forest models is `r round(cross.val.Rsq,digits=2)`.  This is to say that the Random Forest model accounts for `r 100*round(cross.val.Rsq,digits=2)`% of the day-to-day variation in first-time lift ridership at the ski areas.
+
+```{r, message=FALSE,results="hide", echo=FALSE}
+set.seed(12345)
+data3 <- read_csv("./eintritt2.csv")
+data3 <- as.data.frame(unclass(data3))
+
+data3 <- data3 %>%
+  select(., Wetter, auslastung, Arosa, Lenzerheide, anzahlschuler, wochenend, monat, wochedesjahres, dayofseason, schneefall, schulferienindex, percentss, tag2schnee)
+
+data3 <- missForest(data3)$ximp
+n <- floor(0.8*dim(data3)[1])
+
+
+train <- base::sample.int(dim(data3)[1],size=n, replace=FALSE )
+
+test <- c(1:dim(data3)[1])[!c(1:dim(data3)[1]) %in% train]
+
+form <- formula(Arosa ~ Wetter + wochenend + wochedesjahres + dayofseason
+                + schneefall + schulferienindex + percentss +tag2schnee)
+mod <- randomForest(form,data=data3,subset=train,ntree=1000)
+
+testdata <- data3[test,]
+preds <- predict(mod,newdata = testdata)
+lmod <- lm(testdata$auslastung ~ preds)
+r.square <- summary(lmod)$r.squared
+```
+
+```{r echo=FALSE}
+train <- base::sample.int(dim(data3)[1],size=n, replace=FALSE )
+
+test <- c(1:dim(data3)[1])[!c(1:dim(data3)[1]) %in% train]
+
+form <- formula(anzahlschuler ~ Wetter + auslastung + wochenend + wochedesjahres + dayofseason
+                + schneefall + schulferienindex + percentss +tag2schnee)
+mod <- randomForest(form,data=data3,subset=train,ntree=1000)
+
+testdata <- data3[test,]
+preds <- predict(mod,newdata = testdata)
+lmod <- lm(testdata$auslastung ~ preds)
+r.square <- summary(lmod)$r.squared
+```
+
